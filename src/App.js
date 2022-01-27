@@ -1,8 +1,8 @@
-import React, { Suspense } from "react";
-import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
-import "./App.scss";
-import Header from "./components/Header";
-import NotFound from "./components/NotFound";
+import React, { Suspense } from 'react';
+import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
+import './App.scss';
+import Header from './components/Header';
+import NotFound from './components/NotFound';
 
 // lazy load - Code splitting
 /*
@@ -10,7 +10,7 @@ import NotFound from "./components/NotFound";
  * React.lazy dùng khi ta cần load thằng nào thì chỉ load component đó thôi
  * React.lazy() sẽ show ra 1 trạng thái loading cho đến khi trang được load hoàn toàn
  */
-const Photo = React.lazy(() => import("./features/Photo"));
+const Photo = React.lazy(() => import('./features/Photo'));
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       {/* We can put the loading animation here, it will show while the page is loading */}
       <Suspense fallback={<div>Loading...</div>}>
         <BrowserRouter>
-          {/* Header là component chung xuất hiện tất cả các trang */}
+          {/* Header is common component that is displayed all pages */}
           <Header />
 
           <Routes>
@@ -37,6 +37,13 @@ export default App;
 
 /*
  * React-router-dom v6:
-  - Thay component={NotFound} -> element={<NotFound/>}
+  - Replace component={NotFound} -> element={<NotFound/>}
   - <Redirect from="" to="" /> -> <Route path="/" element={<Navigate to="/photos" />} />
+ */
+
+/*
+ ** Relative imports with jsconfig
+ * Reference link: "https://code.visualstudio.com/docs/languages/jsconfig"
+ * Exclude: include all folder except the folder that listed in exclude
+ * Include: the reverse of Exclude
  */

@@ -1,6 +1,6 @@
+import NotFound from 'components/NotFound';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import NotFound from '../../components/NotFound';
 import AddEditPage from './pages/AddEdit';
 import MainPage from './pages/Main';
 

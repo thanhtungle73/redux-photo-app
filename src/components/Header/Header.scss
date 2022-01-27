@@ -1,3 +1,4 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
 .header {
   padding: 1rem 0;
   font-size: 1.25rem;
@@ -9,11 +10,12 @@
   &__link {
     color: #000;
     transition: all 0.25s ease-in-out 0s;
+    text-decoration: none;
 
     &--active,
     &:hover {
       text-decoration: none;
-      color: var(--primary);
+      color: $primary;
     }
   }
 }
