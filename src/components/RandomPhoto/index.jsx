@@ -28,8 +28,21 @@ function RandomPhoto(props) {
 
     // random new URL and call onImageUrlChange -> parent will handle -> update new imageURL
     const handleRandomPhotoClick = async () => {
-        if (onImageUrlChange) {
+        /*  if (onImageUrlChange) {
             const randomImageUrl = getRandomImageUrl();
+        
+            onImageUrlChange(randomImageUrl);
+        } */
+
+        // Generate new URL when error is returned
+        if (onImageUrlChange) {
+            let randomImageUrl;
+            let responseCode = 404;
+            while (responseCode !== 200) {
+                randomImageUrl = getRandomImageUrl();
+                const response = await fetch(randomImageUrl);
+                responseCode = response.status;
+            }
             onImageUrlChange(randomImageUrl);
         }
     }
