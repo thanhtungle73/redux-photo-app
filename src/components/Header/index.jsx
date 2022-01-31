@@ -31,7 +31,7 @@ function Header() {
                                 to="/photos"
                                 className={({ isActive }) => "header__link" + (isActive ? " header__link--active" : "")}
                             >
-                                Redux Project
+                                Redux Photo List
                             </NavLink>
                         </Col>
                     </Row>

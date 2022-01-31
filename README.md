@@ -1,9 +1,5 @@
 # Mini Project: Photo App
 
-## Setup environment
-
-Github Project: https://github.com/paulnguyen-mn/redux-photo-app
-
 ### 1. Setup ReactJS App via Create React App
 
 > Link: https://create-react-app.dev/docs/getting-started/
@@ -88,13 +84,7 @@ function InputField(props) {
     <FormGroup>
       {label && <Label for={name}>{label}</Label>}
 
-      <Input
-        id={name}
-        {...field}
-        type={type}
-        disabled={disabled}
-        placeholder={placeholder}
-      />
+      <Input id={name} {...field} type={type} disabled={disabled} placeholder={placeholder} />
     </FormGroup>
   );
 }

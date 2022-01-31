@@ -29,15 +29,10 @@ PhotoForm.defaultProps = {
     * <FastField> of current field will not re-render when editing other fields
 */
 function PhotoForm(props) {
-
     // Required initial values - Remember do that when having new fields
     // If we put the initial value of a field as undefined (mark the field as un-controller component) -> The error will out when enter the value into the field
     // The value is recommended : '' or null
-    const initialValues = {
-        title: '',
-        categoryId: null,
-        photo: ''
-    }
+    const { initialValues, isAddMode } = props;
 
     const validationSchema = Yup.object({
         title: Yup.string().required('This field is required.'),
@@ -89,9 +84,9 @@ function PhotoForm(props) {
                         />
 
                         <FormGroup>
-                            <Button type="submit" color="primary">
+                            <Button type="submit" color={isAddMode ? 'primary' : 'success'}>
                                 {isSubmitting && <Spinner size='sm' />}
-                                Add to album
+                                {isAddMode ? 'Add to album' : 'Update photo'}
                             </Button>
                         </FormGroup>
                     </Form>

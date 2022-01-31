@@ -28,14 +28,14 @@ function RandomPhoto(props) {
 
     // random new URL and call onImageUrlChange -> parent will handle -> update new imageURL
     const handleRandomPhotoClick = async () => {
-        /*  if (onImageUrlChange) {
-            const randomImageUrl = getRandomImageUrl();
-        
-            onImageUrlChange(randomImageUrl);
-        } */
-
-        // Generate new URL when error is returned
         if (onImageUrlChange) {
+            const randomImageUrl = getRandomImageUrl();
+
+            onImageUrlChange(randomImageUrl);
+        }
+
+        // Other way to generate new URL when error is returned
+        /* if (onImageUrlChange) {
             let randomImageUrl;
             let responseCode = 404;
             while (responseCode !== 200) {
@@ -44,7 +44,7 @@ function RandomPhoto(props) {
                 responseCode = response.status;
             }
             onImageUrlChange(randomImageUrl);
-        }
+        } */
     }
 
     return (
@@ -61,7 +61,13 @@ function RandomPhoto(props) {
                 </Button>
 
                 <div className="random-photo__photo">
-                    {imageUrl && <img src={imageUrl} alt="Ooops ... not found. Please click again!"></img>}
+                    {imageUrl &&
+                        <img
+                            src={imageUrl}
+                            alt="Ooops ... not found. Please click again!"
+                            /* Generate new URL when error is returned */
+                            onError={handleRandomPhotoClick}
+                        />}
                 </div>
             </div>
         </div>
